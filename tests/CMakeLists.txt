@@ -4,7 +4,9 @@ find_package(Log4Cpp REQUIRED)
 file(GLOB headers *.h)
 file(GLOB_RECURSE tests code/*.cpp)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/ ${Boost_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/src/
+                    ${CMAKE_SOURCE_DIR}/tests/code/
+                    ${Boost_INCLUDE_DIRS})
 
 add_definitions(
     -D BOOST_ASIO_DYN_LINK
