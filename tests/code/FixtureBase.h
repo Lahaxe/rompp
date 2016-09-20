@@ -1,12 +1,14 @@
 #ifndef _043baecf_4391_475c_b2b0_43612fcc6060
 #define _043baecf_4391_475c_b2b0_43612fcc6060
 
+#include <fstream>
+
 // Include boost files
 #include <boost/filesystem.hpp>
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include <EvoCommon/environment.h>
+#include <rompp/tools/environment.h>
 
 class FixtureBase
 {
@@ -29,7 +31,7 @@ public:
 protected:
     static std::string _getEnvVariable(std::string const & name)
     {
-        auto value = rompp::getEnvironmentVariable(name);
+        auto value = rompp::tools::getEnvironmentVariable(name);
         if(value == "")
         {
             BOOST_FAIL(name + " is not defined");
