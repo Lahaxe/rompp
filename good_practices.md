@@ -18,21 +18,25 @@ Convention de codage
 #### Règles
 
   * Longueur des lignes :
+
 Une ligne ne fera pas plus de 82 caractères.
 
   * Longueur des noms (de variables, de classes, ...) :
+
 Les noms seront le plus explicites possibles.
 Le nom sera d'autant plus explicite que la portée de l'objet est grande.
 Le nom ne contiendra pas de référence au type de l'objet (pas de notation "hongroise").
 
   * Indentation :
+
 Le code sera indenté en utilisant 4 espaces.
 
   * Accolades :
+
 Les accolades seront écrites après un retour à la ligne.
 Les accolades sont obligatoires et seront toujours présentes même si elles ne contiennent qu'une seule instruction.
 
-```
+```c++
     if (true)
     {
         // something to do...
@@ -43,43 +47,43 @@ Les accolades sont obligatoires et seront toujours présentes même si elles ne 
 
   * Variable membre privé :
 
-```
+```c++
     _ma_variable
 ```
 
   * Variable membre protégé :
 
-```
+```c++
     _ma_variable
 ```
 
   * Variable membre public :
 
-```
+```c++
     ma_variable
 ```
 
   * Variable locale :
 
-```
+```c++
     ma_variable
 ```
 
   * Argument de fonction :
 
-```
+```c++
     mon_argument
 ```
 
   * Constante :
 
-```
+```c++
     MA_CONSTANTE
 ```
 
   * Enumération :
 
-```
+```c++
     enum class MonEnum
     {
         MaValeur
@@ -88,13 +92,13 @@ Les accolades sont obligatoires et seront toujours présentes même si elles ne 
 
   * Fonction :
 
-```
+```c++
     void ma_fonction();
 ```
 
   * Accesseurs :
 
-```
+```c++
     // Getter
     Type get_ma_variable() const;
     
@@ -104,7 +108,7 @@ Les accolades sont obligatoires et seront toujours présentes même si elles ne 
 
   * Namespace :
 
-```
+```c++
     mon_namespace
     {
     } // mon_namespace
@@ -130,7 +134,7 @@ Une classe ou une structure sera défini dans un seul fichier.
 
   * Exemple Structure :
 
-```
+```c++
     struct MaStructure
     {
         // implémentation
@@ -176,14 +180,16 @@ Une classe ou une structure sera défini dans un seul fichier.
     * Template : .txx
 
   * Contenu :
+
 Un fichier contiendra une et une seule classe ou structure.
 Le nom du fichier sera identique au nom de la classe ou de la structure qu'il contient.
 
   * Entête :
+
 Les fichiers d'entête contiennent uniquement les déclarations des classes, des structures et des fonctions.
 Les fichiers d'entête contiennent un ”#ifndef” pour se protéger des inclusions multiples.
 
-```
+```c++
     // Début du fichier 
     #ifndef <Pattern unique> 
     #define <Pattern unique> 
