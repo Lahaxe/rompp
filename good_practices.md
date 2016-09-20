@@ -32,62 +32,83 @@ Le code sera indenté en utilisant 4 espaces.
 Les accolades seront écrites après un retour à la ligne.
 Les accolades sont obligatoires et seront toujours présentes même si elles ne contiennent qu'une seule instruction.
 
+```
     if (true)
     {
         // something to do...
     }
+```
 
 #### Notations
 
   * Variable membre privé :
 
+```
     _ma_variable
+```
 
   * Variable membre protégé :
 
+```
     _ma_variable
+```
 
   * Variable membre public :
 
+```
     ma_variable
+```
 
   * Variable locale :
 
+```
     ma_variable
+```
 
   * Argument de fonction :
 
+```
     mon_argument
+```
 
   * Constante :
 
+```
     MA_CONSTANTE
+```
 
   * Enumération :
 
+```
     enum class MonEnum
     {
         MaValeur
     };
+```
 
   * Fonction :
 
+```
     void ma_fonction();
+```
 
   * Accesseurs :
 
+```
     // Getter
     Type get_ma_variable() const;
     
     // Setter
     void set_ma_variable(Type new_value);
+```
 
   * Namespace :
 
+```
     mon_namespace
     {
     } // mon_namespace
-
+```
 
 #### Classes et Structures
 
@@ -109,13 +130,16 @@ Une classe ou une structure sera défini dans un seul fichier.
 
   * Exemple Structure :
 
+```
     struct MaStructure
     {
         // implémentation
     };
+```
 
   * Exemple Classe :
 
+```c++
     class MaClasse : public MaClasseMere
     {
     public:
@@ -142,6 +166,7 @@ Une classe ou une structure sera défini dans un seul fichier.
         bool _ma_variable;
     
     };
+```
 
 #### Fichiers
 
@@ -158,12 +183,14 @@ Le nom du fichier sera identique au nom de la classe ou de la structure qu'il co
 Les fichiers d'entête contiennent uniquement les déclarations des classes, des structures et des fonctions.
 Les fichiers d'entête contiennent un ”#ifndef” pour se protéger des inclusions multiples.
 
+```
     // Début du fichier 
     #ifndef <Pattern unique> 
     #define <Pattern unique> 
     
     #endif // <Pattern unique> 
     // fin du fichier 
+```
 
 Pour éviter les inclusions multiples, le pattern sera un GUID préfixé et séparé par “_” (exemple: _8f6a0887_49fa_4f6b_9103_6b4d4768a57b).
 
