@@ -1,7 +1,7 @@
 // Include Project files
 #include "rompp/logger/Logger.h"
 
-void initialize()
+void initialize_log()
 {
     log4cpp::Appender *appender1 = new log4cpp::OstreamAppender("console",
                                                                 &std::cout);
@@ -14,34 +14,34 @@ void initialize()
     root.addAppender(appender1);
 }
 
-log4cpp::CategoryStream getLogger(const log4cpp::Priority::PriorityLevel &level)
+log4cpp::CategoryStream get_logger(const log4cpp::Priority::PriorityLevel &level)
 {
     log4cpp::Category& root = log4cpp::Category::getRoot();
 
     return root << level;
 }
 
-log4cpp::CategoryStream loggerDebug()
+log4cpp::CategoryStream log_debug()
 {
-    return getLogger(log4cpp::Priority::DEBUG);
+    return get_logger(log4cpp::Priority::DEBUG);
 }
 
-log4cpp::CategoryStream loggerInfo()
+log4cpp::CategoryStream log_info()
 {
-    return getLogger(log4cpp::Priority::INFO);
+    return get_logger(log4cpp::Priority::INFO);
 }
 
-log4cpp::CategoryStream loggerWarning()
+log4cpp::CategoryStream log_warning()
 {
-    return getLogger(log4cpp::Priority::WARN);
+    return get_logger(log4cpp::Priority::WARN);
 }
 
-log4cpp::CategoryStream loggerError()
+log4cpp::CategoryStream log_error()
 {
-    return getLogger(log4cpp::Priority::ERROR);
+    return get_logger(log4cpp::Priority::ERROR);
 }
 
-log4cpp::CategoryStream loggerFatal()
+log4cpp::CategoryStream log_fatal()
 {
-    return getLogger(log4cpp::Priority::FATAL);
+    return get_logger(log4cpp::Priority::FATAL);
 }

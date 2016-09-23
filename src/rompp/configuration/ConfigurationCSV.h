@@ -1,6 +1,8 @@
 #ifndef _06de3182_b2ee_462c_86ed_48a5efe17e96
 #define _06de3182_b2ee_462c_86ed_48a5efe17e96
 
+#include <unordered_map>
+
 #include "rompp/configuration/ConfigurationBase.h"
 
 class ConfigurationCSV : public ConfigurationBase
@@ -46,6 +48,8 @@ private:
     std::string _line_separator;
 
     std::string _data_separator;
+
+    std::unordered_map<std::string, std::string> _values;
 
 };
 

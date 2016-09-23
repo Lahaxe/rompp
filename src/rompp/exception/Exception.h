@@ -35,6 +35,9 @@ public:
 protected:
     /// @brief Message of the exception.
     std::string _message;
+
+private:
+
 };
 
 } // namespace rompp

@@ -43,7 +43,7 @@ BOOST_FIXTURE_TEST_CASE(No_Initialization, TestDataLogger)
 BOOST_FIXTURE_TEST_CASE(InitializeloggerError, TestDataLogger)
 {
     // Initialize logger
-    initialize();
+    initialize_log();
 
     // Test
     LOGGER_ERROR << " test ";
@@ -65,8 +65,8 @@ BOOST_FIXTURE_TEST_CASE(InitializeloggerError, TestDataLogger)
  */
 BOOST_FIXTURE_TEST_CASE(InitializeloggerWarning, TestDataLogger)
 {
-    // Initialize logger
-    initialize();
+    // initialize_log logger
+    initialize_log();
 
     // Test
     LOGGER_ERROR << " test ";
@@ -89,7 +89,7 @@ BOOST_FIXTURE_TEST_CASE(InitializeloggerWarning, TestDataLogger)
 BOOST_FIXTURE_TEST_CASE(InitializeloggerInfo, TestDataLogger)
 {
     // Initialize logger
-    initialize();
+    initialize_log();
 
     // Test
     LOGGER_ERROR << " test ";
@@ -112,7 +112,7 @@ BOOST_FIXTURE_TEST_CASE(InitializeloggerInfo, TestDataLogger)
 BOOST_FIXTURE_TEST_CASE(InitializeloggerDebug, TestDataLogger)
 {
     // Initialize logger
-    initialize();
+    initialize_log();
 
     // Test
     LOGGER_ERROR << " test ";
@@ -135,7 +135,7 @@ BOOST_FIXTURE_TEST_CASE(InitializeloggerDebug, TestDataLogger)
 BOOST_FIXTURE_TEST_CASE(InitializeLogger_Default, TestDataLogger)
 {
     // Initialize logger
-    initialize();
+    initialize_log();
 
     // Test
     LOGGER_ERROR << " test ";

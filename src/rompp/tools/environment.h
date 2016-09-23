@@ -10,10 +10,10 @@ namespace rompp
 namespace tools
 {
 
-std::string getEnvironmentVariable(const std::string & variable);
+std::string get_env_variable(const std::string & variable);
 
-void setEnvironmentVariable(std::string const & key, 
-						    std::string const & value = "");
+void set_env_variable(std::string const & key, 
+                      std::string const & value = "");
 
 } // namespace tools
 
