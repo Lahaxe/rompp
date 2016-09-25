@@ -1,5 +1,5 @@
-#ifndef _b6a1a59c_f8d3_41de_80ee_467059a1570f
-#define _b6a1a59c_f8d3_41de_80ee_467059a1570f
+#ifndef _79859d52_adcd_41c6_8753_15d964e0ad57
+#define _79859d52_adcd_41c6_8753_15d964e0ad57
 
 // Include Standard library
 #include <map>
@@ -39,4 +39,4 @@ log4cpp::CategoryStream log_fatal();
 #define LOGGER_ERROR log_error()
 #define LOGGER_FATAL log_fatal()
 
-#endif // _b6a1a59c_f8d3_41de_80ee_467059a1570f
+#endif // _79859d52_adcd_41c6_8753_15d964e0ad57

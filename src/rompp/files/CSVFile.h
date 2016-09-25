@@ -1,8 +1,15 @@
-#ifndef _06de3182_b2ee_462c_86ed_48a5efe17e96
-#define _06de3182_b2ee_462c_86ed_48a5efe17e96
+#ifndef _956566d2_6ef8_4b99_9b65_52ee2ddf5ac6
+#define _956566d2_6ef8_4b99_9b65_52ee2ddf5ac6
 
+#include <memory>
 #include <string>
 #include <vector>
+
+namespace rompp
+{
+
+namespace files
+{
 
 class CSVFile
 {
@@ -32,9 +39,9 @@ public:
     
     std::vector<std::string> get_column(unsigned int column) const;
 
-    void load(std::stringstream const & buffer);
+    void load_buffer(std::string const & buffer);
 
-    void load(std::string const & filename);
+    void load_file(std::string const & filename);
 
     void save(std::string const & filename);
 
@@ -52,4 +59,8 @@ private:
 
 };
 
-#endif // _06de3182_b2ee_462c_86ed_48a5efe17e96
+} // namespace files
+
+} // namespace rompp
+
+#endif // _956566d2_6ef8_4b99_9b65_52ee2ddf5ac6

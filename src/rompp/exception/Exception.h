@@ -1,5 +1,5 @@
-#ifndef _fd71f7bd_92fd_4b92_940c_54ce1ae68d02
-#define _fd71f7bd_92fd_4b92_940c_54ce1ae68d02
+#ifndef _30684acf_09cd_4ccb_ba5e_0677c61d1905
+#define _30684acf_09cd_4ccb_ba5e_0677c61d1905
 
 // Include Standard library
 #include <exception>
@@ -42,4 +42,4 @@ private:
 
 } // namespace rompp
 
-#endif // _fd71f7bd_92fd_4b92_940c_54ce1ae68d02
+#endif // _30684acf_09cd_4ccb_ba5e_0677c61d1905

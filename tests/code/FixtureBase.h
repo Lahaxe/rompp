@@ -31,7 +31,7 @@ public:
 protected:
     static std::string _getEnvVariable(std::string const & name)
     {
-        auto value = rompp::tools::getEnvironmentVariable(name);
+        auto value = rompp::tools::get_env_variable(name);
         if(value == "")
         {
             BOOST_FAIL(name + " is not defined");

@@ -12,9 +12,18 @@
 BOOST_AUTO_TEST_CASE(GetenvSetenv)
 {
     std::string const varname = "MY_VARIABLE";
+
+    // Default not exist
     BOOST_CHECK_EQUAL(rompp::tools::get_env_variable(varname), "");
+
+    // Set value
     rompp::tools::set_env_variable(varname, "my_value");
     BOOST_CHECK_EQUAL(rompp::tools::get_env_variable(varname), "my_value");
+
+    // Remove value
+    rompp::tools::set_env_variable(varname, "");
+    BOOST_CHECK_EQUAL(rompp::tools::get_env_variable(varname), "");
+
 }
 
 /******************************* TEST Nominal **********************************/

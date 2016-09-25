@@ -1,7 +1,6 @@
 #ifndef _8aa168b7_c9ed_4275_9015_4c35e12a876b
 #define _8aa168b7_c9ed_4275_9015_4c35e12a876b
 
-// Include EvoCommon files (Evolution project)
 #include "FixtureBase.h"
 
 class FixtureConfiguration : public FixtureBase
@@ -28,7 +27,8 @@ public:
         std::stringstream file_content;
         file_content << "";
 
-        this->file = this->_createFile("nom_du_fichier.extension", file_content.str());
+        this->file = this->_createFile("nom_du_fichier.extension",
+                                       file_content.str());
     };
 
 };

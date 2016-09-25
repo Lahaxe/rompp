@@ -1,4 +1,4 @@
-find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 find_package(Log4Cpp REQUIRED)
 
 file(GLOB_RECURSE Header_Files "*.h")
