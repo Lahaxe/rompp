@@ -1,5 +1,5 @@
-#ifndef _BASEFACTORY_H_ 
-#define _BASEFACTORY_H_
+#ifndef _425cf579_c8c3_41ba_b483_7152ecabc0cd
+#define _425cf579_c8c3_41ba_b483_7152ecabc0cd
 
 #include <functional>
 #include <map>
@@ -34,5 +34,4 @@ private:
 
 #include "BaseFactory.txx"
 
-#endif // _BASEFACTORY_H_
-
+#endif // _425cf579_c8c3_41ba_b483_7152ecabc0cd

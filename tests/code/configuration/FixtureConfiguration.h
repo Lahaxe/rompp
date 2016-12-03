@@ -21,14 +21,14 @@ public:
     };
 
     /// @brief Create a template and save the file into temporary directory.
-    void createTemplateFile()
+    void create_template_file()
     {
         // Creation du template
         std::stringstream file_content;
         file_content << "";
 
-        this->file = this->_createFile("nom_du_fichier.extension",
-                                       file_content.str());
+        this->file = this->_create_file("nom_du_fichier.extension",
+                                        file_content.str());
     };
 
 };

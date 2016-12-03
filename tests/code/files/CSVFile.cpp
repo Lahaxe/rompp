@@ -1,5 +1,13 @@
 #define BOOST_TEST_MODULE ModuleCSVFile
-// Include boost files
-#include <boost/test/unit_test.hpp>
 
+#include "FixtureFile.h"
 #include "rompp/files/CSVFile.h"
+
+/******************************* TEST Nominal **********************************/
+/**
+ * Nominal test case:
+ */
+BOOST_AUTO_TEST_CASE(TODO)
+{
+
+}

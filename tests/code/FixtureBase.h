@@ -1,6 +1,7 @@
 #ifndef _043baecf_4391_475c_b2b0_43612fcc6060
 #define _043baecf_4391_475c_b2b0_43612fcc6060
 
+// Include Standard Library files
 #include <fstream>
 
 // Include boost files
@@ -29,7 +30,7 @@ public:
     }
 
 protected:
-    static std::string _getEnvVariable(std::string const & name)
+    static std::string _get_env_variable(std::string const & name)
     {
         auto value = rompp::tools::get_env_variable(name);
         if(value == "")
@@ -39,7 +40,7 @@ protected:
         return value;
     }
 
-    void _createTempDirectory()
+    void _create_temp_directory()
     {
         // Creation d'un dossier temporaire
         boost::filesystem::path uniquepath = boost::filesystem::unique_path();
@@ -49,10 +50,10 @@ protected:
         boost::filesystem::create_directory(this->_temporary_dir.c_str());
     }
 
-    std::string _createFile(std::string const & filename,
-                            std::string const & content)
+    std::string _create_file(std::string const & filename,
+                             std::string const & content)
     {
-        this->_createTempDirectory();
+        this->_create_temp_directory();
 
         boost::filesystem::path filepath(this->_temporary_dir.c_str());
         filepath /= filename;

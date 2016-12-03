@@ -1,5 +1,5 @@
-#ifndef _BASEFACTORY_TXX_
-#define _BASEFACTORY_TXX_
+#ifndef _cb879289_38db_4010_a772_1a670b9bdc21
+#define _cb879289_38db_4010_a772_1a670b9bdc21
 
 #include "BaseFactory.h"
 
@@ -10,9 +10,9 @@ void BaseFactory<T>::register_()
     if (this->_creators.find(TClass::class_name()) == this->_creators.end())
     {
         // register
-        this->_creators.insert(std::make_pair(TClass::class_name(), []() { return TClass::New(); }));
+        this->_creators.insert(std::make_pair(TClass::class_name(),
+                                              []() { return TClass::New(); }));
     }
 }
 
-#endif // _BASEFACTORY_TXX_ 
-
+#endif // _cb879289_38db_4010_a772_1a670b9bdc21

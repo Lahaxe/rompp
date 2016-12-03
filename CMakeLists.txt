@@ -8,6 +8,7 @@ set(rompp_VERSION
     ${rompp_MAJOR_VERSION}.${rompp_MINOR_VERSION}.${rompp_PATCH_VERSION})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(_GLIBCXX_USE_CXX11_ABI 0)
 
 option(BUILD_EXAMPLES "Build the examples directory." OFF)
 option(BUILD_TESTING "Build the tests directory." OFF)
