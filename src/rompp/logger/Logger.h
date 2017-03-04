@@ -2,41 +2,54 @@
 #define _79859d52_adcd_41c6_8753_15d964e0ad57
 
 // Include Standard library
-#include <map>
 #include <string>
 
-#include <log4cpp/Category.hh>
-#include <log4cpp/OstreamAppender.hh>
-#include <log4cpp/Priority.hh>
+const std::string DEFAULT_PATTERN = "%d{%Y-%m-%d %H:%M:%S.%l} - %p: %m%n";
 
-static std::map<std::string, log4cpp::Priority::PriorityLevel> level_dictionary =
+class Logger
 {
-    { "", log4cpp::Priority::DEBUG },       // Default
-    { "FATAL", log4cpp::Priority::FATAL },
-    { "ERROR", log4cpp::Priority::ERROR },
-    { "WARNING", log4cpp::Priority::WARN },
-    { "INFO", log4cpp::Priority::INFO },
-    { "DEBUG", log4cpp::Priority::DEBUG }
+public:
+
+    static Logger& instance();
+
+    static void delete_instance();
+
+    virtual ~Logger();
+
+    std::string initialize_default();
+
+    std::string create_stream_appender(std::ostream & stream,
+                                     std::string const & priority = "",
+                                     std::string const & pattern = DEFAULT_PATTERN,
+                                     bool is_default = false);
+
+    std::string create_file_appender(std::string const & filename,
+                                   std::string const & priority = "",
+                                   std::string const & pattern = DEFAULT_PATTERN,
+                                   bool is_default = false);
+
+    void debug(std::string const & text, std::string const & name = "");
+
+    void info(std::string const & text, std::string const & name = "");
+
+    void warning(std::string const & text, std::string const & name = "");
+
+    void error(std::string const & text, std::string const & name = "");
+
+    void fatal(std::string const & text, std::string const & name = "");
+
+protected:
+
+private:
+    Logger();
+
+    void _log_data(std::string const & text, std::string const & name = "",
+                   std::string const & level = "");
+
+    static Logger* _instance;
+
+    std::string _default_name;
+
 };
-
-void initialize_log();
-
-log4cpp::CategoryStream get_logger(log4cpp::Priority::PriorityLevel const & level);
-
-log4cpp::CategoryStream log_debug();
-
-log4cpp::CategoryStream log_info();
-
-log4cpp::CategoryStream log_warning();
-
-log4cpp::CategoryStream log_error();
-
-log4cpp::CategoryStream log_fatal();
-
-#define LOGGER_DEBUG log_debug()
-#define LOGGER_INFO log_info()
-#define LOGGER_WARNING log_warning()
-#define LOGGER_ERROR log_error()
-#define LOGGER_FATAL log_fatal()
 
 #endif // _79859d52_adcd_41c6_8753_15d964e0ad57
