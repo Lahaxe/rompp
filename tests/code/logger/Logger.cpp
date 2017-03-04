@@ -1,135 +1,111 @@
 #define BOOST_TEST_MODULE ModuleLogger
 
+// Include standard Library
+#include <sstream>
+
+// Include Project files
 #include "FixtureLogger.h"
-#include "rompp/logger/Logger.h"
-
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: Logger not Initialize
+ * Nominal test case: Constructor and Destructor
  */
-BOOST_FIXTURE_TEST_CASE(No_Initialization, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(Constructor, FixtureLogger)
 {
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
-
-    BOOST_CHECK(stream().empty());
 }
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: InitializeLogger (ERROR)
+ * Nominal test case: Log a message into a default stream
  */
-BOOST_FIXTURE_TEST_CASE(InitializeloggerError, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(LogDefaultStream, FixtureLogger)
 {
-    // Initialize logger
-    initialize_log();
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    logger.create_stream_appender(stream, "DEBUG", DEFAULT_PATTERN, true);
 
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
+    logger.debug("My message");
 
-    BOOST_REQUIRE(!stream().empty());
-
-    BOOST_CHECK(stream().find("ERROR") != std::string::npos);
-    BOOST_CHECK(stream().find("WARN") == std::string::npos);
-    BOOST_CHECK(stream().find("INFO") == std::string::npos);
-    BOOST_CHECK(stream().find("DEBUG") == std::string::npos);
+    auto result = stream.str();
+    BOOST_CHECK(result.find("DEBUG: My message") != std::string::npos);
 }
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: InitializeLogger (WARNING)
+ * Nominal test case: Log a Debug message into a stream
  */
-BOOST_FIXTURE_TEST_CASE(InitializeloggerWarning, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(LogDebugStream, FixtureLogger)
 {
-    // initialize_log logger
-    initialize_log();
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    auto name = logger.create_stream_appender(stream);
 
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
+    logger.debug("My message", name);
 
-    BOOST_REQUIRE(!stream().empty());
-
-    BOOST_CHECK(stream().find("ERROR") != std::string::npos);
-    BOOST_CHECK(stream().find("WARN") != std::string::npos);
-    BOOST_CHECK(stream().find("INFO") == std::string::npos);
-    BOOST_CHECK(stream().find("DEBUG") == std::string::npos);
+    auto result = stream.str();
+    BOOST_CHECK(result.find("DEBUG: My message") != std::string::npos);
 }
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: InitializeLogger (INFO)
+ * Nominal test case: Log an Information message into a stream
  */
-BOOST_FIXTURE_TEST_CASE(InitializeloggerInfo, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(LogInfoStream, FixtureLogger)
 {
-    // Initialize logger
-    initialize_log();
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    auto name = logger.create_stream_appender(stream);
 
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
+    logger.info("My message", name);
 
-    BOOST_REQUIRE(!stream().empty());
-
-    BOOST_CHECK(stream().find("ERROR") != std::string::npos);
-    BOOST_CHECK(stream().find("WARN") != std::string::npos);
-    BOOST_CHECK(stream().find("INFO") != std::string::npos);
-    BOOST_CHECK(stream().find("DEBUG") == std::string::npos);
+    auto result = stream.str();
+    BOOST_CHECK(result.find("INFO: My message") != std::string::npos);
 }
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: InitializeLogger (DEBUG)
+ * Nominal test case: Log a Warning message into a stream
  */
-BOOST_FIXTURE_TEST_CASE(InitializeloggerDebug, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(LogWarningStream, FixtureLogger)
 {
-    // Initialize logger
-    initialize_log();
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    auto name = logger.create_stream_appender(stream);
 
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
+    logger.warning("My message", name);
 
-    BOOST_REQUIRE(!stream().empty());
-
-    BOOST_CHECK(stream().find("ERROR") != std::string::npos);
-    BOOST_CHECK(stream().find("WARN") != std::string::npos);
-    BOOST_CHECK(stream().find("INFO") != std::string::npos);
-    BOOST_CHECK(stream().find("DEBUG") != std::string::npos);
+    auto result = stream.str();
+    BOOST_CHECK(result.find("WARN: My message") != std::string::npos);
 }
 
 /******************************* TEST Nominal **********************************/
 /**
- * Nominal test case: InitializeLogger (DEFAULT)
+ * Nominal test case: Log an Error message into a stream
  */
-BOOST_FIXTURE_TEST_CASE(InitializeLogger_Default, FixtureLogger)
+BOOST_FIXTURE_TEST_CASE(LogErrorStream, FixtureLogger)
 {
-    // Initialize logger
-    initialize_log();
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    auto name = logger.create_stream_appender(stream);
 
-    // Test
-    LOGGER_ERROR << " test ";
-    LOGGER_WARNING << " test ";
-    LOGGER_INFO << " test ";
-    LOGGER_DEBUG << " test ";
+    logger.error("My message", name);
 
-    BOOST_REQUIRE(!stream().empty());
+    auto result = stream.str();
+    BOOST_CHECK(result.find("ERROR: My message") != std::string::npos);
+}
 
-    BOOST_CHECK(stream().find("ERROR") != std::string::npos);
-    BOOST_CHECK(stream().find("WARN") != std::string::npos);
-    BOOST_CHECK(stream().find("INFO") != std::string::npos);
-    BOOST_CHECK(stream().find("DEBUG") != std::string::npos);
+/******************************* TEST Nominal **********************************/
+/**
+ * Nominal test case: Log a Fatal message into a stream
+ */
+BOOST_FIXTURE_TEST_CASE(LogFatalStream, FixtureLogger)
+{
+    std::stringstream stream;
+    auto logger = Logger::instance();
+    auto name = logger.create_stream_appender(stream);
+
+    logger.fatal("My message", name);
+
+    auto result = stream.str();
+    BOOST_CHECK(result.find("FATAL: My message") != std::string::npos);
 }
