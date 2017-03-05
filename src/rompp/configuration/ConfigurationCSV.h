@@ -5,7 +5,7 @@
 
 #include "rompp/configuration/ConfigurationBase.h"
 
-class ConfigurationCSV : public ConfigurationBase
+/*class ConfigurationCSV : public ConfigurationBase
 {
 public:
     /// @brief Smart pointer for an instance of
@@ -51,6 +51,6 @@ private:
 
     std::unordered_map<std::string, std::string> _values;
 
-};
+};*/
 
 #endif // _06de3182_b2ee_462c_86ed_48a5efe17e96

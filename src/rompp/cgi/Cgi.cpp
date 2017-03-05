@@ -368,7 +368,8 @@ std::string Cgi::to_string() const
     stream << REDIRECT_URL << "=" << this->get_redirect_URL() << "\n";
     stream << REDIRECT_STATUS << "=" << this->get_redirect_status() << "\n";
     stream << HTTP_REFERER << "=" << this->get_referrer() << "\n";
-    stream << HTTP_ACCEPT_LANGUAGE << "=" << this->get_accept_language_string() << "\n";
+    stream << HTTP_ACCEPT_LANGUAGE << "=" << this->get_accept_language_string()
+           << "\n";
     stream << HTTPS << "=" << this->get_using_HTTPS() << "\n";
     stream << "Data" << "=" << this->get_input_content() << "\n";
     

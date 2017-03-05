@@ -16,7 +16,8 @@ public:
 
     virtual ~Logger();
 
-    std::string initialize_default();
+    std::string initialize_default(std::string const & priority,
+                                   std::string const & pattern = DEFAULT_PATTERN);
 
     std::string create_stream_appender(std::ostream & stream,
                                      std::string const & priority = "",

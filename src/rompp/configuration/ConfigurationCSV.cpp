@@ -2,7 +2,7 @@
 
 #include "rompp/configuration/ConfigurationCSV.h"
 #include "rompp/files/CSVFile.h"
-
+/*
 ConfigurationCSV::Pointer
 ConfigurationCSV
 ::New()
@@ -102,3 +102,4 @@ ConfigurationCSV
 {
 
 }
+*/

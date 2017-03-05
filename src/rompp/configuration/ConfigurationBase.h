@@ -8,21 +8,18 @@
 class ConfigurationBase
 {
 public:
-    ConfigurationBase();
+    /// @brief Smart pointer for an instance of ConfigurationBase
+    typedef std::shared_ptr<ConfigurationBase> Pointer;
+    /// @brief Smart pointer for an instance of ConfigurationBase
+    typedef std::shared_ptr<ConfigurationBase const> ConstPointer;
 
     virtual ~ConfigurationBase();
 
-    std::string get_filename() const;
+    virtual void read(std::string const & config) = 0;
 
-    void set_filename(std::string const & new_name);
+    virtual void write() = 0;
 
-    virtual void load(std::string const & config) = 0;
-
-    virtual void load_file(std::string const & filename) = 0;
-
-    virtual void save() = 0;
-
-    virtual void save(std::string const & filename) = 0;
+    virtual void remove() = 0;
 
     virtual bool contains_key(std::string const & key) = 0;
 
@@ -32,9 +29,9 @@ public:
                            std::string const & value) = 0;
 
 protected:
+    ConfigurationBase();
 
 private:
-    std::string _filename;
 
 };
 
