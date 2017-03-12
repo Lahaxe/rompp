@@ -15,11 +15,11 @@ public:
 
     virtual ~ConfigurationBase();
 
-    virtual void read(std::string const & config) = 0;
+    virtual void read() = 0;
 
     virtual void write() = 0;
 
-    virtual void remove() = 0;
+    virtual bool remove() = 0;
 
     virtual bool contains_key(std::string const & key) = 0;
 

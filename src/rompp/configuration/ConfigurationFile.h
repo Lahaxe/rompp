@@ -18,6 +18,8 @@ public:
 
     void set_filename(std::string const & filename);
 
+    virtual bool remove();
+
 protected:
     ConfigurationFile();
 

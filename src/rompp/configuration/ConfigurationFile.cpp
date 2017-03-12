@@ -1,3 +1,5 @@
+#include <cstdio>
+
 // Include Project files
 #include "rompp/configuration/ConfigurationFile.h"
 
@@ -33,4 +35,11 @@ ConfigurationFile
 ::set_filename(std::string const & filename)
 {
     this->_filename = filename;
+}
+
+bool
+ConfigurationFile
+::remove()
+{
+    return std::remove(this->_filename.c_str()) == 0;
 }
